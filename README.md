@@ -2,12 +2,18 @@
 
 A set of command line utilities for MS SQL Server
 
+## Install
+
+```
+npm install sql-util-cli -g
+```
+
 ## Usage (Examples)
 
 
 ```bash
-node index.js -s \"SELECT 2 AS Age\" -t \"SELECT 2 AS Age\" -sv ServerName -db dbName
-node index.js -s \"EXEC dbo.GetClient 17\" -t \"EXEC dbo.GetClient 17 -sv ServerName -db dbName
+sql-util-cli -s \"SELECT 2 AS Age\" -t \"SELECT 2 AS Age\" -sv ServerName -db dbName
+sql-util-cli -s \"EXEC dbo.GetClient 17\" -t \"EXEC dbo.GetClient 17 -sv ServerName -db dbName
 ```
 
 ## Env File (Optional)

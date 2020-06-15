@@ -1,10 +1,23 @@
 {
-    "name": "CompareSQLOutputs",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "name": "sql-util-cli",
+    "version": "0.1.2",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "A set of command line utilities for MS SQL Server",
+    "bin": {
+        "compare": "./index.js"
+    },
     "scripts": {},
-    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VermontDepartmentOfHealth/sql-cli.git"
+    },
+    "bugs": {
+        "url": "https://github.com/VermontDepartmentOfHealth/sql-cli/issues"
+    },
+    "homepage": "https://github.com/VermontDepartmentOfHealth/sql-cli#readme",
+    "keywords": ["SQL", "utilties", "CLI"],
     "author": "",
     "license": "ISC",
     "dependencies": {

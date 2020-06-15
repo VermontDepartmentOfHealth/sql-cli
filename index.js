@@ -1,7 +1,8 @@
 // get command line args
 const sql = require('mssql/msnodesqlv8')
-    // load env file
-require("dotenv")()
+
+// load env file
+require("dotenv").config()
 
 const { program } = require('commander');
 program
