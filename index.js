@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // get command line args
 const sql = require('mssql/msnodesqlv8')
 

@@ -1,12 +1,12 @@
 {
-    "name": "sql-util-cli",
-    "version": "0.1.2",
+    "name": "@ads-vdh/sqlutil",
+    "version": "0.1.3",
     "publishConfig": {
         "access": "public"
     },
     "description": "A set of command line utilities for MS SQL Server",
     "bin": {
-        "compare": "./index.js"
+        "sqlutil": "./index.js"
     },
     "scripts": {},
     "repository": {

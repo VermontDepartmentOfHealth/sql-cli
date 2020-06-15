@@ -5,15 +5,15 @@ A set of command line utilities for MS SQL Server
 ## Install
 
 ```
-npm install sql-util-cli -g
+npm install @ads-vdh/sqlutil -g
 ```
 
 ## Usage (Examples)
 
 
 ```bash
-sql-util-cli -s \"SELECT 2 AS Age\" -t \"SELECT 2 AS Age\" -sv ServerName -db dbName
-sql-util-cli -s \"EXEC dbo.GetClient 17\" -t \"EXEC dbo.GetClient 17 -sv ServerName -db dbName
+sqlutil -s \"SELECT 2 AS Age\" -t \"SELECT 2 AS Age\" -sv ServerName -db dbName
+sqlutil -s \"EXEC dbo.GetClient 17\" -t \"EXEC dbo.GetClient 17 -sv ServerName -db dbName
 ```
 
 ## Env File (Optional)
