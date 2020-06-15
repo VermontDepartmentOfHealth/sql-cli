@@ -1,3 +1,7 @@
+# custom
+examples.sh
+.env
+
 # Logs
 logs
 *.log

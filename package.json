@@ -1,0 +1,16 @@
+{
+    "name": "CompareSQLOutputs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "commander": "^5.1.0",
+        "dotenv": "^8.2.0",
+        "msnodesqlv8": "^1.1.6",
+        "mssql": "^6.2.0"
+    }
+}
