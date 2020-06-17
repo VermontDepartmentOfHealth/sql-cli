@@ -20,6 +20,21 @@
                 //"SELECT 2 AS Age"
                 //"SELECT 2 AS Age"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Tests",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/mocha",
+            "args": [
+                "--inspect-brk",
+                "${workspaceFolder}/test/**/*.js"
+            ],
+            "internalConsoleOptions": "openOnSessionStart",
+            "port": 9229,
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }
