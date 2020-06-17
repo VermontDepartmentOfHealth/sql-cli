@@ -14,9 +14,11 @@
             "program": "${workspaceFolder}\\index.js",
             "args": [
                 "-s",
-                "SELECT 2 AS Age",
+                "[dbo].[GetIMRAlgorithmResultOriginal] 23443, N'12/20/2019', N'01/01/2020'",
                 "-t",
-                "SELECT 2 AS Age"
+                "[dbo].[GetIMRAlgorithmResult] 23443, N'12/20/2019', N'01/01/2020'"
+                //"SELECT 2 AS Age"
+                //"SELECT 2 AS Age"
             ]
         }
     ]
