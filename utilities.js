@@ -48,6 +48,9 @@ function isEqual(value, other) {
 
     // Compare properties
     if (type === '[object Array]') {
+        // checks earh row by row by position - will fail if same rows in diff order
+        // todo: before comparing, sort both arrays (capture every column, and loop through, sort by A, thenBy B, thenBy C)
+        // todo: when comparing values - just look for matching record in other array (arrays have equal lengths)
         for (var i = 0; i < valueLen; i++) {
             if (compare(value[i], other[i]) === false) return false;
         }
