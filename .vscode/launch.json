@@ -12,11 +12,20 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\index.js",
+            //Testing multi table result sets
+            // "args": [
+            //     "-s",
+            //     "[dbo].[GetIMRClientForEval] 1770855",//"[dbo].[GetIMRAlgorithmResultOriginal] 0, N'11/20/2015', N'01/01/2020'", //23443
+            //     "-t",
+            //     "[dbo].[GetIMRClientForEval] 1845489"
+            //     //"SELECT 2 AS Age"
+            //     //"SELECT 2 AS Age"
+            // ]
             "args": [
                 "-s",
-                "[dbo].[GetIMRAlgorithmResultOriginal] 23443, N'12/20/2019', N'01/01/2020'",
+                "[dbo].[GetIMRAlgorithmResult] 0, N'03/08/2017', N'03/09/2020'",//"[dbo].[GetIMRAlgorithmResultOriginal] 0, N'11/20/2015', N'01/01/2020'", //23443
                 "-t",
-                "[dbo].[GetIMRAlgorithmResult] 23443, N'12/20/2019', N'01/01/2020'"
+                "[dbo].[GetIMRAlgorithmResultOriginal] 0, N'03/08/2017', N'03/09/2020'"
                 //"SELECT 2 AS Age"
                 //"SELECT 2 AS Age"
             ]

@@ -1,4 +1,7 @@
 var assert = require('assert');
+// get command line args
+const sql = require('mssql/msnodesqlv8')
+const isEqual = require("../utilities")
 
 describe('isEqual', function() {
 
@@ -107,18 +110,50 @@ describe('isEqual', function() {
         assert.equal(actual, expected);
     });
 
+    
+
     // todo - get passing
-    it("returns true when position in array is non deterministic", function() {
+    it("returns true when matching multi property objects", function() {
         // arrange
         const isEqual = require("../utilities")
-        let source = [{ a: 1 }, { a: 2 }]
-        let target = [{ a: 2 }, { a: 1 }]
+        let source = [{ a: 1, b:2 }, { a: 2 }]
+        let target = [{ a: 2 }, { a: 1, b:2  }]
         let expected = true
 
         // act
         let actual = isEqual(source, target)
 
         // asset
+        assert.equal(actual, expected);
+    });
+
+        // todo - get passing
+    it("Returns true when objects match but properties are in different orders", function() {
+            // arrange
+        const isEqual = require("../utilities")
+        let source = [{ a: 1, b:2 }, { a: 2 }]
+        let target = [{ a: 2 }, { b:2, a: 1  }]
+        let expected = true
+    
+            // act
+        let actual = isEqual(source, target)
+    
+            // asset
+        assert.equal(actual, expected);
+    });
+
+        // todo - get passing
+    it("returns true when position in array is non deterministic", function() {
+            // arrange
+        const isEqual = require("../utilities")
+        let source = [{ a: 1 }, { a: 2 }]
+        let target = [{ a: 2 }, { a: 1 }]
+        let expected = true
+    
+            // act
+        let actual = isEqual(source, target)
+    
+            // asset
         assert.equal(actual, expected);
     });
 
@@ -137,7 +172,6 @@ describe('isEqual', function() {
         // asset
         assert.equal(actual, expected);
     });
-
 
 
 
