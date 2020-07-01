@@ -47,15 +47,18 @@ async function main() {
         };
 
         // connect to db
-        await sql.connect(config)
+        let cnn = await sql.connect(config)
 
         // query
         let resultSource = await sql.query(program.source)
         let resultTarget = await sql.query(program.target)
-        
+
+        // close connection
+        await cnn.close()
+
         let recordsetsSource = resultSource.recordsets.map(r => [...r])
         let recordsetsTarget = resultTarget.recordsets.map(r => [...r])
-        
+
         // recordset *can* contain multiple tables
         // tables *can* contain multiple rows
         // consolidate down - if we only have a single one
