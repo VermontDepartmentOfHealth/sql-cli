@@ -1,6 +1,8 @@
 module.exports = isEqual
 var _ = require('underscore');
  
+//In order to sort multi property objects, we need the keys in the same order, it doesn't matter what order they 
+//are in, only that they are in a conistent order. This method will also sort child objects
 function sortObjectKeys(object){
   var sortedObj = {},
     keys = _.keys(object);
@@ -20,28 +22,32 @@ function sortObjectKeys(object){
     return sortedObj;
   }
 
+//used to sort multi property objects, the result of this sort can change based on the order of keys in 
+//object, its purpose is to provide a sort that is the same across objects that have the same keys in the same order 
 function compareMultiPropObj(varA,varB){
-  //first compare first value
-  //for each property in object a, if it is less than the same property in var b return -1 if more return 1, if they are all the same return 0
+  //for each property in object a, if it is less than the same property in var b return -1 if more return 1
   for (var prop in varA){
-    var firstVal = varA[prop]
-    var firstValFromOther = varB[prop]
-    if (firstVal > firstValFromOther) {
+    var valFromA = varA[prop]
+    var valFromB = varB[prop]
+    if (valFromA > valFromB) {
       return 1;     
-    } else if (firstVal < firstValFromOther) {
+    } else if (valFromA < valFromB) {
       return -1;
     }
   }
+  //if they are all the same return 0
   return 0;
 }
 
-//TODO: https://gomakethings.com/check-if-two-arrays-or-objects-are-equal-with-javascript/
+//most of this code is from https://gomakethings.com/check-if-two-arrays-or-objects-are-equal-with-javascript/
 function isEqual(value, other) {
 
-  var theyAreArrays = Array.isArray(value) && Array.isArray(other)
-  var theyAreArraysOfMultiPropObjs = Object.keys(value).length > 1 && Object.keys(other).length > 1
+  var itemsAreArrays = Array.isArray(value) && Array.isArray(other)
 
-if(theyAreArrays && theyAreArraysOfMultiPropObjs){
+  //The order of items in an array doesn't matter in terms of matching. 
+  //if the array is of objects, we need to sort keys, so we can then sort the objects
+  //by all keys if needed and then match each item by position in the sorted array
+  if(itemsAreArrays){
     var tableOne = value;
     var tableTwo = other;
     var tableOneWithSortedKeys = []
@@ -58,9 +64,10 @@ if(theyAreArrays && theyAreArraysOfMultiPropObjs){
     tableOne.sort(compareMultiPropObj)
     tableTwo.sort(compareMultiPropObj)
 
+    //items are now sorted by all keys and can be compared positionally 
     value = tableOne;
     other = tableTwo
-}
+  }
   
     // Get the value type
     var type = Object.prototype.toString.call(value);
@@ -94,7 +101,7 @@ if(theyAreArrays && theyAreArraysOfMultiPropObjs){
             if (itemType !== Object.prototype.toString.call(item2)) return false;
 
             // Else if it's a function, convert to a string and compare
-            // Otherwise, just compare
+            // Otherwise, just compare, this section is not needed for sql results but could be useful in the future
             if (itemType === '[object Function]') {
                 if (item1.toString() !== item2.toString()) return false;
             } else if (itemType === '[object Date]') {
@@ -110,11 +117,8 @@ if(theyAreArrays && theyAreArraysOfMultiPropObjs){
     if (type === '[object Array]') {
         value = value.sort();
         other = other.sort();
-        // checks earh row by row by position - rows have been sorted by column, columns were sorted first
-        //each row should match
-        //Get number of columns
-        //For each array 
-        //for each column, 
+        // checks each row by row by position - rows have been sorted by column, columns were sorted first
+        //each row should match, Get number of columns, for each array, for each column 
         for (var i = 0; i < valueLen; i++) {
             if (compare(value[i], other[i]) === false) {
               return false;

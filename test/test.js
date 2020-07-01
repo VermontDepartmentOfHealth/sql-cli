@@ -95,7 +95,6 @@ describe('isEqual', function() {
     });
 
 
-    // todo - get passing
     it("returns true when position in array is non deterministic", function() {
         // arrange
         const isEqual = require("../utilities")
@@ -110,9 +109,7 @@ describe('isEqual', function() {
         assert.equal(actual, expected);
     });
 
-    
 
-    // todo - get passing
     it("returns true when matching multi property objects", function() {
         // arrange
         const isEqual = require("../utilities")
@@ -127,7 +124,22 @@ describe('isEqual', function() {
         assert.equal(actual, expected);
     });
 
-        // todo - get passing
+    
+    it("returns false when matching differing multi property objects", function() {
+        // arrange
+        const isEqual = require("../utilities")
+        let source = [{ a: 1, b:2 }, { a: 2 }]
+        let target = [{ a: 2 }, { a: 2, b:2  }]
+        let expected = false
+
+        // act
+        let actual = isEqual(source, target)
+
+        // asset
+        assert.equal(actual, expected);
+    });
+
+
     it("Returns true when objects match but properties are in different orders", function() {
             // arrange
         const isEqual = require("../utilities")
