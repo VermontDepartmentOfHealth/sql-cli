@@ -12,11 +12,37 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\index.js",
+            //Testing multi table result sets
+            // "args": [
+            //     "-s",
+            //     "[dbo].[GetIMRClientForEval] 1770855",//"[dbo].[GetIMRAlgorithmResultOriginal] 0, N'11/20/2015', N'01/01/2020'", //23443
+            //     "-t",
+            //     "[dbo].[GetIMRClientForEval] 1845489"
+            //     //"SELECT 2 AS Age"
+            //     //"SELECT 2 AS Age"
+            // ]
             "args": [
                 "-s",
-                "SELECT 2 AS Age",
+                "[dbo].[GetIMRAlgorithmResult] 0, N'03/08/2017', N'03/09/2020'",//"[dbo].[GetIMRAlgorithmResultOriginal] 0, N'11/20/2015', N'01/01/2020'", //23443
                 "-t",
-                "SELECT 2 AS Age"
+                "[dbo].[GetIMRAlgorithmResultOriginal] 0, N'03/08/2017', N'03/09/2020'"
+                //"SELECT 2 AS Age"
+                //"SELECT 2 AS Age"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Tests",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/mocha",
+            "args": [
+                "--inspect-brk",
+                "${workspaceFolder}/test/**/*.js"
+            ],
+            "internalConsoleOptions": "openOnSessionStart",
+            "port": 9229,
+            "skipFiles": [
+                "<node_internals>/**"
             ]
         }
     ]

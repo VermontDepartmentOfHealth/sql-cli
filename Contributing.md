@@ -4,10 +4,10 @@ Info for local developers to get the package up and running locally and publish 
 
 ## Run package locally
 
-1. In current package directory run `npm link`
+1. In current package directory run the following:
 
    ```bash
-   npm link -g
+   npm install -g .
    ```
 
 

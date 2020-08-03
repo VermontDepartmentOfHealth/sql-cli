@@ -12,8 +12,8 @@ npm install @ads-vdh/sqlutil -g
 
 
 ```bash
-sqlutil -s \"SELECT 2 AS Age\" -t \"SELECT 2 AS Age\" -sv ServerName -db dbName
-sqlutil -s \"EXEC dbo.GetClient 17\" -t \"EXEC dbo.GetClient 17 -sv ServerName -db dbName
+sqlutil -s "SELECT 2 AS Age"        -t "SELECT 1 + 1 AS Age"    -sv ServerName -db dbName
+sqlutil -s "EXEC dbo.GetClient1 17" -t "EXEC dbo.GetClient2 17" -sv ServerName -db dbName
 ```
 
 ## Env File (Optional)
