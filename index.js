@@ -2,7 +2,7 @@
 
 // get command line args
 const sql = require('mssql/msnodesqlv8')
-const isEqual = require("./utilities")
+let utils = require("./utilities")
 
 
 // load env file
@@ -65,7 +65,7 @@ async function main() {
         if (recordsetsSource.length === 1) recordsetsSource = recordsetsSource[0]
         if (recordsetsTarget.length === 1) recordsetsTarget = recordsetsTarget[0]
 
-        let isIdentical = isEqual(recordsetsSource, recordsetsTarget)
+        let isIdentical = utils.isEqual(recordsetsSource, recordsetsTarget)
 
         console.log('source query: ', program.source)
         console.log('target query: ', program.target)

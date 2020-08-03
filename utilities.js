@@ -1,4 +1,6 @@
-module.exports = isEqual
+module.exports = {
+    isEqual
+}
 
 //In order to sort multi property objects, we need the keys in the same order, it doesn't matter what order they
 //are in, only that they are in a conistent order. This method will also sort child objects
